@@ -1,0 +1,70 @@
+.plan {
+  padding: 52px 0;
+}
+.bannerContent {
+  background-color: #00b3a6;
+  padding-top: 17px;
+  padding-bottom: 7px;
+  text-align: center;
+  color: #fff;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.MicroServices {
+  border: 1px solid rgb(168, 168, 168);
+  padding-top: 17px;
+  border-top: none;
+}
+.MicroServices ul {
+  list-style: none;
+  padding-left: 0px !important;
+  margin-bottom: 2px !important;
+}
+.MicroServices ul li {
+  position: relative;
+  padding-bottom: 15px;
+  text-align: center;
+  color: #959595;
+}
+.MicroServices ul li:last-child {
+  position: relative;
+  padding-bottom: 0px;
+  text-align: center;
+  color: #959595;
+}
+.MicroServices ul li::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: rgb(146, 146, 146);
+  left: 0%;
+  z-index: 1;
+}
+.MicroServices ul li:last-child::after {
+  display: none;
+}
+.lastBtnDiv {
+  text-align: center;
+  margin-top: 45px;
+}
+.lastBtn {
+  border: 1px solid #00aa9d;
+  background-color: #00aa9d;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 4px;
+}
+.lastBtn:hover {
+  border: 1px solid #00aa9d;
+  background-color: transparent;
+  color: #00aa9d;
+  padding: 10px 30px;
+  border-radius: 4px;
+}
+
+.link_plan:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}

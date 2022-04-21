@@ -1,0 +1,23 @@
+.innovadorSection {
+  padding: 30px 10px;
+}
+.innovadorContent h2 {
+  text-align: center;
+  color: #2b4055;
+}
+.innovadorContent p {
+  color: rgb(134, 134, 134);
+  /* padding: 0 70px; */
+}
+.images {
+  margin-top: 50px;
+}
+.bannerImgs {
+  text-align: center;
+}
+.innovadorContent h3 {
+  text-align: center;
+  color: #2b4055;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}

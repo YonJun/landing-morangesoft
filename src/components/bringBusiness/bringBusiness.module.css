@@ -1,0 +1,32 @@
+.BringBusiness {
+  padding: 40px 10px;
+  background-color: #008060;
+  color: #fff;
+}
+.contentSubHeading h6 {
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.contentSubHeading h6::after {
+  position: absolute;
+  display: block;
+  content: "→";
+  top: 0;
+  left: 16%;
+}
+.contentSubHeadingImgs {
+  margin-top: 40px;
+}
+.contentSubHeadingImg h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  margin-top: 18px;
+  margin-bottom: 2px;
+}
+.contentSubHeadingImg img,
+h6,
+p {
+  cursor: pointer;
+}
