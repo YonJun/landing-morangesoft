@@ -18,7 +18,7 @@ export const PaymentMethod = ({ form, plan }) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
-
+  console.log(JSON.stringify({ form, plan }));
   useEffect(() => {
     const init = async () => {
       const data = {
@@ -68,7 +68,6 @@ export const PaymentMethod = ({ form, plan }) => {
   if (data) {
     return (
       <>
-        <pre>{JSON.stringify({ form, plan }, null, 2)}</pre>
         <Tabs
           mountOnEnter={true}
           unmountOnExit={true}
