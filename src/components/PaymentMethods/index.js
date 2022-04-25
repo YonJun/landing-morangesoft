@@ -14,13 +14,12 @@ const ListPaymentMethod = {
 };
 
 export const PaymentMethod = ({ form, plan }) => {
-  const [tabKey, setTabKey] = useState(null);
   const [activeKeys, setActiveKeys] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
 
-  console.log(JSON.stringify({ form, plan }));
+  // console.log(JSON.stringify({ form, plan }));
   useEffect(() => {
     const init = async () => {
       const data = {
@@ -29,24 +28,19 @@ export const PaymentMethod = ({ form, plan }) => {
         id: "1",
       };
       const resp = await customAxios.post("/filter-data-generic", data);
-      console.log("resp", resp);
+      // console.log("resp", resp);
       setIsLoading(false);
       if (resp.status === 200) {
         setData(resp.data);
 
-        console.log("success", resp.data);
+        // console.log("success", resp.data);
       } else {
-        console.log("error", resp.data);
+        // console.log("error", resp.data);
         setError(resp.data);
       }
     };
     init();
   }, []);
-  useEffect(() => {
-    if (data) {
-      setTabKey(data[0].id);
-    }
-  }, [data]);
 
   const handleActiveKey = (id) => {
     if (activeKeys.includes(id)) {
