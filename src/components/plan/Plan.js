@@ -10,9 +10,9 @@ const Plan = () => {
   return (
     <div className={styles.plan}>
       <div className="container">
-        <div className="row">
+        <div className={`row`}>
           <div
-            className={`col-lg-3 ${styles.link_plan}`}
+            className={`col-lg-3 mb-3 ${styles.link_plan}`}
             onClick={() => {
               navigate(`/checkout-plan/${1}`);
             }}>
@@ -37,7 +37,7 @@ const Plan = () => {
             </div>
           </div>
           <div
-            className={`col-lg-3 ${styles.link_plan}`}
+            className={`col-lg-3 mb-3 ${styles.link_plan}`}
             onClick={() => {
               navigate(`/checkout-plan/${2}`);
             }}>
@@ -66,7 +66,7 @@ const Plan = () => {
             </div>
           </div>
           <div
-            className={`col-lg-3 ${styles.link_plan}`}
+            className={`col-lg-3 mb-3 ${styles.link_plan}`}
             onClick={() => {
               navigate(`/checkout-plan/${3}`);
             }}>
@@ -99,7 +99,7 @@ const Plan = () => {
             </div>
           </div>
           <div
-            className={`col-lg-3 ${styles.link_plan}`}
+            className={`col-lg-3 mb-3 ${styles.link_plan}`}
             onClick={() => {
               navigate(`/checkout-plan/${4}`);
             }}>

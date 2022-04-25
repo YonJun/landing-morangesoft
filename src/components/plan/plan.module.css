@@ -65,6 +65,8 @@
 }
 
 .link_plan:hover {
-  transform: scale(1.05);
   cursor: pointer;
+}
+.link_plan:hover .MicroServices {
+  border: 1px solid #00aa9d;
 }
