@@ -4,8 +4,8 @@ import FormPaymentPayPal from "../FormPaymentPayPal";
 import FormPaymentNiubiz from "../FormPaymentNiubiz";
 import FormPaymentPayu from "../FormPaymentPayu";
 import FormPaymentCulqi from "../FormPaymentCulqi";
-
-import { Spinner, Tab, Tabs } from "react-bootstrap";
+import Collapse from "react-bootstrap/Collapse";
+import { Card, Spinner } from "react-bootstrap";
 import { customAxios } from "../lib/axios";
 
 const ListPaymentMethod = {
@@ -15,9 +15,11 @@ const ListPaymentMethod = {
 
 export const PaymentMethod = ({ form, plan }) => {
   const [tabKey, setTabKey] = useState(null);
+  const [activeKeys, setActiveKeys] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
+
   console.log(JSON.stringify({ form, plan }));
   useEffect(() => {
     const init = async () => {
@@ -46,6 +48,14 @@ export const PaymentMethod = ({ form, plan }) => {
     }
   }, [data]);
 
+  const handleActiveKey = (id) => {
+    if (activeKeys.includes(id)) {
+      setActiveKeys((currKeys) => currKeys.filter((crrId) => crrId !== id));
+    } else {
+      setActiveKeys((currKeys) => [...currKeys, id]);
+    }
+  };
+
   if (isLoading) {
     return (
       <div
@@ -68,34 +78,14 @@ export const PaymentMethod = ({ form, plan }) => {
   if (data) {
     return (
       <>
-        <Tabs
-          mountOnEnter={true}
-          unmountOnExit={true}
-          id="tab"
-          activeKey={tabKey}
-          onSelect={(k) => setTabKey(k)}>
+        <div>
           {data.map((paymentMethod) => {
-            // {
-            // 	"id": 10,
-            // 	"nombre": "Pago Contra Entrega (en Efectivo)",
-            // 	"api_key": null,
-            // 	"url": "",
-            // 	"token": null,
-            // 	"estado": "1",
-            // 	"merchant_id": null,
-            // 	"image": "https://www.cebracreativos.com/wp-content/uploads/2020/05/contraentrega.png",
-            // 	"descripcion": "Paga en efectivo o con tarjeta Visa o Mastercard",
-            // 	"id_negocio": "71gv#s%7913G#@S600",
-            // 	"id_proyecto": "17sd%s#7913G%FJ600",
-            // 	"key_render": 10,
-            // 	"id_moneda": null
-            // },
             const Comp = ListPaymentMethod[paymentMethod.id];
             return (
-              <Tab
-                key={paymentMethod.id}
-                eventKey={paymentMethod.id}
-                title={
+              <Card key={paymentMethod.id}>
+                <Card.Header
+                  onClick={() => handleActiveKey(paymentMethod.id)}
+                  style={{ cursor: "pointer" }}>
                   <div className="flex items-center justify-center">
                     <img
                       src={paymentMethod.image}
@@ -105,12 +95,21 @@ export const PaymentMethod = ({ form, plan }) => {
                     />
                     <p>{paymentMethod.nombre}</p>
                   </div>
-                }>
-                <Comp form={form} plan={plan} />
-              </Tab>
+                </Card.Header>
+                <Card.Body className="p-0">
+                  <Collapse
+                    in={activeKeys.includes(paymentMethod.id)}
+                    mountOnEnter={true}
+                    unmountOnExit={false}>
+                    <div>
+                      <Comp form={form} plan={plan} />{" "}
+                    </div>
+                  </Collapse>
+                </Card.Body>
+              </Card>
             );
           })}
-        </Tabs>
+        </div>
       </>
     );
   }

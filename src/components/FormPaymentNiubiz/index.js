@@ -52,6 +52,7 @@ const useNiubiz = ({ price }) => {
 };
 
 export default function FormPaymentNiubiz({ plan }) {
+  console.log("render FormPaymentNiubiz");
   const { data, isLoading, error } = useNiubiz({ price: plan.price });
 
   const [actionUrl, setActionUrl] = useState("");
