@@ -31,7 +31,7 @@ export const PaymentMethod = ({ form, plan }) => {
       // console.log("resp", resp);
       setIsLoading(false);
       if (resp.status === 200) {
-        setData(resp.data);
+        setData(resp.data.filter((pMethod) => pMethod.id !== 10));
 
         // console.log("success", resp.data);
       } else {
